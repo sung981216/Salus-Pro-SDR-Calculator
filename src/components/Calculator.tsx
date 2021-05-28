@@ -166,7 +166,7 @@ const Calculator = (): ReactElement => {
             />
           </div>
           <div className="inputContainer">
-            <label htmlFor="contractors">Number of Sub Contractors</label>
+            <label htmlFor="contractors">Number of Sub-contractors</label>
             <input
               name="contractors"
               id="contractors"
@@ -207,7 +207,7 @@ const Calculator = (): ReactElement => {
 
       <div className="resultContainer">
         <p>
-          For {workers} workers & {contractors} sub contractors
+          For {workers} workers & {contractors} sub-contractors
         </p>
         <p>Salus Pro ARR: ${salusARR}</p>
         <p>Subcontractor Portal ARR: ${subARR}</p>

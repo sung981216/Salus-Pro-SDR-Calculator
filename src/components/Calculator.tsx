@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import "../styles/Calculator.css";
 
 const Calculator = (): ReactElement => {
@@ -7,9 +7,9 @@ const Calculator = (): ReactElement => {
   const [forms, setForms] = useState("");
   const [salusARR, setSalusARR] = useState("");
   const [subARR, setSubARR] = useState("");
-  const [totalARR, setTotalARR] = useState("");
   const [totalForms, setTotalForms] = useState("");
-  const [totalFirstYear, setTotalFirstYear] = useState("");
+  const [totalARR, setTotalARR] = useState(0);
+  const [totalFirstYear, setTotalFirstYear] = useState(0);
 
   const calculateSalusARR = (workers: string) => {
     const numWorkers: number = Number(workers);
@@ -17,7 +17,9 @@ const Calculator = (): ReactElement => {
     let rate: number;
     let salusArr: number;
 
-    if (numWorkers >= 1 && numWorkers <= 10) {
+    if (numWorkers === 0) {
+      salusArr = 0;
+    } else if (numWorkers >= 1 && numWorkers <= 10) {
       rate = 10;
       salusArr = fee + rate * numWorkers;
     } else if (numWorkers >= 11 && numWorkers <= 20) {
@@ -52,7 +54,9 @@ const Calculator = (): ReactElement => {
     let rate: number;
     let subArr: number;
 
-    if (numContractor >= 1 && numContractor <= 5) {
+    if (numContractor === 0) {
+      subArr = 0;
+    } else if (numContractor >= 1 && numContractor <= 5) {
       subArr = 1000;
     } else if (numContractor >= 6 && numContractor <= 10) {
       rate = 180;
@@ -76,7 +80,7 @@ const Calculator = (): ReactElement => {
 
   const calculateTotalARR = (salusARR: string, subARR: string) => {
     const total = Number(salusARR) + Number(subARR);
-    setTotalARR(total.toString());
+    setTotalARR(total);
   };
 
   const calculateForms = (forms: string) => {
@@ -84,7 +88,9 @@ const Calculator = (): ReactElement => {
     let total: number;
     const rate = 10;
 
-    if (numForms >= 1 && numForms <= 5) {
+    if (numForms === 0) {
+      total = 0;
+    } else if (numForms >= 1 && numForms <= 5) {
       total = 0;
     } else {
       total = (numForms - 5) * rate;
@@ -98,7 +104,7 @@ const Calculator = (): ReactElement => {
     totalForms: string
   ) => {
     let total = Number(salusARR) + Number(subARR) + Number(totalForms);
-    setTotalFirstYear(total.toString());
+    setTotalFirstYear(total);
   };
 
   const calculate =
@@ -112,10 +118,7 @@ const Calculator = (): ReactElement => {
     ) =>
     (e: any) => {
       e.preventDefault();
-      calculateSalusARR(workers);
-      calculateSubARR(contractors);
       calculateTotalARR(salusARR, subARR);
-      calculateForms(forms);
       calculateYearTotal(salusARR, subARR, totalForms);
     };
 
@@ -125,11 +128,17 @@ const Calculator = (): ReactElement => {
     setContractors("");
     setForms("");
     setSalusARR("");
-    setTotalARR("");
-    setTotalFirstYear("");
+    setTotalARR(0);
+    setTotalFirstYear(0);
     setSubARR("");
     setTotalForms("");
   };
+
+  useEffect(() => {
+    calculateSalusARR(workers);
+    calculateSubARR(contractors);
+    calculateForms(forms);
+  });
 
   const onChangeWorkers = (event: any): void => {
     setWorkers(event.target.value);

@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import "../styles/HomePage.css";
 import SalusLogo from "../images/Salus-Logo-White.png";
+import Calculator from "../components/Calculator";
 
 const HomePage = (): ReactElement => {
   return (
@@ -8,7 +9,9 @@ const HomePage = (): ReactElement => {
       <div className="logoContainer">
         <img src={SalusLogo} alt="logo-salus" />
       </div>
-      <div className="calculatorContainer"></div>
+      <div className="calculatorContainer">
+        <Calculator />
+      </div>
     </div>
   );
 };

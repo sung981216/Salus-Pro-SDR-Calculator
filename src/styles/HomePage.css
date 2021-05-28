@@ -1,6 +1,7 @@
 .homePageContainer {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -11,4 +12,9 @@
 
 .logoContainer {
   margin-top: 100px;
+}
+
+.logoContainer img {
+  width: 250px;
+  height: auto;
 }

@@ -1,0 +1,49 @@
+.calculatorComponentContainer {
+  background-color: #22231f;
+  color: white;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 15px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.inputContainer input {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #f2f2f2;
+  padding: 12px;
+  width: 250px;
+  outline: none;
+  font-size: 14px;
+}
+
+.workerContractorContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.buttonContainer button {
+  border-radius: 15px;
+  width: 125px;
+  height: 35px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #a0d024;
+  color: #ffffff;
+}

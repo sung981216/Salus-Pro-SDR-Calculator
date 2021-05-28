@@ -18,3 +18,8 @@
   width: 250px;
   height: auto;
 }
+
+.calculatorContainer {
+  margin-top: 50px;
+  margin-bottom: auto;
+}

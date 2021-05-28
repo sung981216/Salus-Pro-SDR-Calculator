@@ -176,7 +176,7 @@ const Calculator = (): ReactElement => {
           </div>
 
           <div className="inputContainer">
-            <label htmlFor="forms">Amount of Forms</label>
+            <label htmlFor="forms">Number of Forms</label>
             <input
               name="forms"
               id="forms"
@@ -206,7 +206,7 @@ const Calculator = (): ReactElement => {
       </form>
 
       <div className="resultContainer">
-        <p>
+        <p className="outputLine">
           For {workers} workers & {contractors} sub-contractors
         </p>
         <p>Salus Pro ARR: ${salusARR}</p>

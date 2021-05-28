@@ -207,13 +207,13 @@ const Calculator = (): ReactElement => {
 
       <div className="resultContainer">
         <p>
-          For {workers} workers & {contractors} contractors
+          For {workers} workers & {contractors} sub contractors
         </p>
-        <p>Salus ProARR: {salusARR}</p>
-        <p>Subcontractor Portal ARR: {subARR}</p>
-        <p>Total ARR: {totalARR}</p>
-        <p>One Time Fee: {totalForms}</p>
-        <p>First Year Subscription: {totalFirstYear}</p>
+        <p>Salus Pro ARR: ${salusARR}</p>
+        <p>Subcontractor Portal ARR: ${subARR}</p>
+        <p>Total ARR: ${totalARR}</p>
+        <p>One Time Fee: ${totalForms}</p>
+        <p>First Year Subscription: ${totalFirstYear}</p>
       </div>
     </div>
   );

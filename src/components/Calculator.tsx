@@ -211,10 +211,10 @@ const Calculator = (): ReactElement => {
         </p>
         <p>Salus Pro ARR: ${salusARR}</p>
         <p>Subcontractor Portal ARR: ${subARR}</p>
+        <p>One Time Fee: ${totalForms}</p>
         <p>
           <b>Total ARR: ${totalARR}</b>
         </p>
-        <p>One Time Fee: ${totalForms}</p>
         <p>
           <b>First Year Subscription: ${totalFirstYear}</b>
         </p>

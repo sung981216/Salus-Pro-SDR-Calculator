@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import "../styles/HomePage.css";
-import SalusLogo from "../images/Salus-Logo-White.png";
+import SalusLogo from "../images/Salus-Logo-Black.png";
 import Calculator from "../components/Calculator";
 
 const HomePage = (): ReactElement => {

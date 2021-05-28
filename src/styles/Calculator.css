@@ -4,6 +4,8 @@
   width: 400px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding-top: 50px;
   padding-bottom: 50px;
   border-radius: 15px;
@@ -46,4 +48,8 @@
   outline: none;
   background-color: #a0d024;
   color: #ffffff;
+}
+
+.resultContainer {
+  margin-top: 40px;
 }

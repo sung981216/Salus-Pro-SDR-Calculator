@@ -7,7 +7,7 @@
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 42px;
   border-radius: 15px;
 }
 
@@ -52,4 +52,10 @@
 
 .resultContainer {
   margin-top: 40px;
+  margin-left: 70px;
+  margin-right: auto;
+}
+
+.resultContainer p {
+  margin-bottom: 8px;
 }

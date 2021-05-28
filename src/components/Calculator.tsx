@@ -6,9 +6,12 @@ const Calculator = (): ReactElement => {
   const [contractors, setContractors] = useState("");
   const [forms, setForms] = useState("");
   const [salusARR, setSalusARR] = useState("");
+  const [subARR, setSubARR] = useState("");
+  const [totalARR, setTotalARR] = useState("");
+  const [totalForms, setTotalForms] = useState("");
+  const [totalFirstYear, setTotalFirstYear] = useState("");
 
-  const calculateSalusARR = (workers: string) => (e: any) => {
-    e.preventDefault();
+  const calculateSalusARR = (workers: string) => {
     const numWorkers: number = Number(workers);
     const fee: number = 500;
     let rate: number;
@@ -43,6 +46,91 @@ const Calculator = (): ReactElement => {
     setSalusARR(salusArr.toString());
   };
 
+  const calculateSubARR = (contractors: string) => {
+    const numContractor: number = Number(contractors);
+    const fee: number = 200;
+    let rate: number;
+    let subArr: number;
+
+    if (numContractor >= 1 && numContractor <= 5) {
+      subArr = 1000;
+    } else if (numContractor >= 6 && numContractor <= 10) {
+      rate = 180;
+      subArr = fee + rate * numContractor;
+    } else if (numContractor >= 11 && numContractor <= 15) {
+      rate = 160;
+      subArr = fee + rate * numContractor;
+    } else if (numContractor >= 16 && numContractor <= 20) {
+      rate = 140;
+      subArr = fee + rate * numContractor;
+    } else if (numContractor >= 21 && numContractor <= 25) {
+      rate = 120;
+      subArr = fee + rate * numContractor;
+    } else {
+      rate = 100;
+      subArr = fee + rate * numContractor;
+    }
+
+    setSubARR(subArr.toString());
+  };
+
+  const calculateTotalARR = (salusARR: string, subARR: string) => {
+    const total = Number(salusARR) + Number(subARR);
+    setTotalARR(total.toString());
+  };
+
+  const calculateForms = (forms: string) => {
+    let numForms = Number(forms);
+    let total: number;
+    const rate = 10;
+
+    if (numForms >= 1 && numForms <= 5) {
+      total = 0;
+    } else {
+      total = (numForms - 5) * rate;
+    }
+    setTotalForms(total.toString());
+  };
+
+  const calculateYearTotal = (
+    salusARR: string,
+    subARR: string,
+    totalForms: string
+  ) => {
+    let total = Number(salusARR) + Number(subARR) + Number(totalForms);
+    setTotalFirstYear(total.toString());
+  };
+
+  const calculate =
+    (
+      workers: string,
+      contractors: string,
+      salusARR: string,
+      subARR: string,
+      forms: string,
+      totalForms: string
+    ) =>
+    (e: any) => {
+      e.preventDefault();
+      calculateSalusARR(workers);
+      calculateSubARR(contractors);
+      calculateTotalARR(salusARR, subARR);
+      calculateForms(forms);
+      calculateYearTotal(salusARR, subARR, totalForms);
+    };
+
+  const resetInputs = (e: any): void => {
+    e.preventDefault();
+    setWorkers("");
+    setContractors("");
+    setForms("");
+    setSalusARR("");
+    setTotalARR("");
+    setTotalFirstYear("");
+    setSubARR("");
+    setTotalForms("");
+  };
+
   const onChangeWorkers = (event: any): void => {
     setWorkers(event.target.value);
   };
@@ -53,14 +141,6 @@ const Calculator = (): ReactElement => {
 
   const onChangeForms = (event: any) => {
     setForms(event.target.value);
-  };
-
-  const resetInputs = (e: any): void => {
-    e.preventDefault();
-    setWorkers("");
-    setContractors("");
-    setForms("");
-    setSalusARR("");
   };
 
   return (
@@ -100,14 +180,31 @@ const Calculator = (): ReactElement => {
           <button type="reset" onClick={resetInputs}>
             Reset
           </button>
-          <button type="submit" onClick={calculateSalusARR(workers)}>
+          <button
+            type="submit"
+            onClick={calculate(
+              workers,
+              contractors,
+              salusARR,
+              subARR,
+              forms,
+              totalForms
+            )}
+          >
             Calculate
           </button>
         </div>
       </form>
 
       <div className="resultContainer">
+        <p>
+          For {workers} workers & {contractors} contractors
+        </p>
         <p>Salus ProARR: {salusARR}</p>
+        <p>Subcontractor Portal ARR: {subARR}</p>
+        <p>Total ARR: {totalARR}</p>
+        <p>One Time Fee: {totalForms}</p>
+        <p>First Year Subscription: {totalFirstYear}</p>
       </div>
     </div>
   );

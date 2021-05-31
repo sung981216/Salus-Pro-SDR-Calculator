@@ -63,3 +63,22 @@
 .outputLine {
   text-decoration: underline;
 }
+
+@media (max-width: 450px) {
+  .calculatorComponentContainer {
+    width: 300px;
+  }
+
+  .inputContainer input {
+    width: 225px;
+  }
+
+  .buttonContainer button {
+    width: 110px;
+  }
+
+  .resultContainer {
+    margin-left: 35px;
+    margin-right: auto;
+  }
+}

@@ -10,6 +10,7 @@ const Calculator = (): ReactElement => {
   const [totalForms, setTotalForms] = useState("");
   const [totalARR, setTotalARR] = useState(0);
   const [totalFirstYear, setTotalFirstYear] = useState(0);
+  const [discount, setDiscount] = useState("");
 
   const calculateSalusARR = (workers: string) => {
     const numWorkers: number = Number(workers);
@@ -45,7 +46,11 @@ const Calculator = (): ReactElement => {
       salusArr = fee + rate * numWorkers;
     }
 
-    setSalusARR(salusArr.toString());
+    if (numWorkers > 1000) {
+      setSalusARR("Custom");
+    } else {
+      setSalusARR(salusArr.toString());
+    }
   };
 
   const calculateSubARR = (contractors: string) => {
@@ -78,8 +83,21 @@ const Calculator = (): ReactElement => {
     setSubARR(subArr.toString());
   };
 
-  const calculateTotalARR = (salusARR: string, subARR: string) => {
-    const total = Number(salusARR) + Number(subARR);
+  const calculateTotalARR = (
+    salusARR: string,
+    subARR: string,
+    discount: string
+  ) => {
+    const newDiscount = Number(discount) / 100;
+    let total;
+    if (!discount) {
+      total = Number(salusARR) + Number(subARR);
+    } else {
+      total =
+        Number(salusARR) +
+        Number(subARR) -
+        (Number(salusARR) + Number(subARR)) * newDiscount;
+    }
     setTotalARR(total);
   };
 
@@ -101,9 +119,20 @@ const Calculator = (): ReactElement => {
   const calculateYearTotal = (
     salusARR: string,
     subARR: string,
-    totalForms: string
+    totalForms: string,
+    discount: string
   ) => {
-    let total = Number(salusARR) + Number(subARR) + Number(totalForms);
+    const newDiscount = Number(discount) / 100;
+    let total;
+    if (!discount) {
+      total = Number(salusARR) + Number(subARR) + Number(totalForms);
+    } else {
+      total =
+        Number(salusARR) +
+        Number(subARR) -
+        (Number(salusARR) + Number(subARR)) * newDiscount +
+        Number(totalForms);
+    }
     setTotalFirstYear(total);
   };
 
@@ -118,8 +147,8 @@ const Calculator = (): ReactElement => {
     ) =>
     (e: any) => {
       e.preventDefault();
-      calculateTotalARR(salusARR, subARR);
-      calculateYearTotal(salusARR, subARR, totalForms);
+      calculateTotalARR(salusARR, subARR, discount);
+      calculateYearTotal(salusARR, subARR, totalForms, discount);
     };
 
   const resetInputs = (e: any): void => {
@@ -132,6 +161,7 @@ const Calculator = (): ReactElement => {
     setTotalFirstYear(0);
     setSubARR("");
     setTotalForms("");
+    setDiscount("");
   };
 
   useEffect(() => {
@@ -150,6 +180,10 @@ const Calculator = (): ReactElement => {
 
   const onChangeForms = (event: any) => {
     setForms(event.target.value);
+  };
+
+  const onChangeDiscount = (event: any) => {
+    setDiscount(event.target.value);
   };
 
   return (
@@ -182,6 +216,15 @@ const Calculator = (): ReactElement => {
               id="forms"
               value={forms}
               onChange={onChangeForms}
+            />
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="forms">Discount (%)</label>
+            <input
+              name="discount"
+              id="discount"
+              value={discount}
+              onChange={onChangeDiscount}
             />
           </div>
         </div>

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Salus-Pro-SDR-Calculator/static/css/main.8bcf3b22.chunk.css",
+    "main.js": "/Salus-Pro-SDR-Calculator/static/js/main.acdd9e05.chunk.js",
+    "main.js.map": "/Salus-Pro-SDR-Calculator/static/js/main.acdd9e05.chunk.js.map",
+    "runtime-main.js": "/Salus-Pro-SDR-Calculator/static/js/runtime-main.4894dfe2.js",
+    "runtime-main.js.map": "/Salus-Pro-SDR-Calculator/static/js/runtime-main.4894dfe2.js.map",
+    "static/js/2.81960bf9.chunk.js": "/Salus-Pro-SDR-Calculator/static/js/2.81960bf9.chunk.js",
+    "static/js/2.81960bf9.chunk.js.map": "/Salus-Pro-SDR-Calculator/static/js/2.81960bf9.chunk.js.map",
+    "static/js/3.80ee4326.chunk.js": "/Salus-Pro-SDR-Calculator/static/js/3.80ee4326.chunk.js",
+    "static/js/3.80ee4326.chunk.js.map": "/Salus-Pro-SDR-Calculator/static/js/3.80ee4326.chunk.js.map",
+    "index.html": "/Salus-Pro-SDR-Calculator/index.html",
+    "static/css/main.8bcf3b22.chunk.css.map": "/Salus-Pro-SDR-Calculator/static/css/main.8bcf3b22.chunk.css.map",
+    "static/js/2.81960bf9.chunk.js.LICENSE.txt": "/Salus-Pro-SDR-Calculator/static/js/2.81960bf9.chunk.js.LICENSE.txt",
+    "static/media/HomePage.css": "/Salus-Pro-SDR-Calculator/static/media/background.e451b51f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4894dfe2.js",
+    "static/js/2.81960bf9.chunk.js",
+    "static/css/main.8bcf3b22.chunk.css",
+    "static/js/main.acdd9e05.chunk.js"
+  ]
+}

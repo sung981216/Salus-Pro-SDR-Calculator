@@ -295,7 +295,7 @@ const Calculator = (): ReactElement => {
           )}
         </p>
         <p>
-          <b>First Year Subscription: ${totalFirstYear}</b>
+          <b>Year 1 Subscription: ${totalFirstYear}</b>
         </p>
       </div>
     </div>

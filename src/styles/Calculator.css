@@ -60,6 +60,10 @@
   margin-bottom: 8px;
 }
 
+.discountResult {
+  color: red;
+}
+
 .outputLine {
   text-decoration: underline;
 }
